@@ -1,21 +1,15 @@
 const express = require("express");
+const morgan = require("morgan")
 const app = express();
 
+app.use(morgan('dev'))
+
+app.set("view engine", "ejs")
 
 app.get("/", (req, res) => {
-    res.send("Home Page")
+    res.render("index")
 })
-
-app.get("/service", (req, res) => {
-    res.send("Service Page")
-})
-
-app.get("/contact", (req, res) => {
-    res.send("Contact Page")
-})
-
 app.get("/about", (req, res) => {
-    res.send("About Page")
+    res.send("About Pages ")
 })
-
 app.listen(3000)
